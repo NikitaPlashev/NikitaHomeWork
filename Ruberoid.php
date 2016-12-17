@@ -15,4 +15,4 @@ if ($price >= 77) {
 echo "\n";
 if ($price > 300) {
     echo "Well, one can see that you are not with Odessa)))";
-}
+}  

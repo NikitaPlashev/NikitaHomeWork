@@ -27,3 +27,4 @@ case 5:
 default:
     echo "Such mark is not real";
 }
+
