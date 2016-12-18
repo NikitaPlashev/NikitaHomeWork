@@ -17,16 +17,15 @@ $i = 0;
 while ($i < $number) {
 $i=$i+1;
 
-if(($i % $Fizz) == 0 && ($i % $Buzz) == 0){       
-    echo "FB";
-} elseif(($i % $Buzz) == 0){
+if (!($i % $Fizz))  {   
+    if (!($i % $Buzz))  {  
+    echo "FB"; 
+    } else echo "F";
+} elseif (!($i % $Buzz)){
     echo "B";
-} elseif(($i % $Fizz) == 0){
-    echo "F";
 } else {
     echo $i;
 
 }
 echo "\n";
 }
-
