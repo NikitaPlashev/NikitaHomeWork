@@ -25,7 +25,83 @@ public function __get($name) {    // доступ к закрытому мето
 
 
 class HouseType extends FindHouse implements OurHouse {
+	
+public  $accesses;
+ public		$flors;
+ public		$flats;
+ public		$fff;
+
+
+
+
 	public function ChoosingType() {
+
+		return $fff;
+}
+	public function ChoosingObject() {
+
+	if ($this->type = true) {
+echo "Write your flat number ___ ";
+$handle = fopen ("php://stdin","r");
+$this->flat_number = fgets($handle);
+
+//echo $this->flat_number;
+		}
+		return $this->flat_number;
+	}
+
+
+	public function ype($m1,$m2,$m3,$m5) {
+$this->flors = $m2;
+$this->accesses = $m1;
+$this->flats = $m3;
+$this->fff = $m5;
+
+
+	}
+
+
+	public function Calculation() {
+$flors = $this->flors;
+$accesses = $this->accesses;
+$flats = $this->flats; 
+$fff = $this->fff;
+$flat_number = $this->flat_number; 
+
+		 if ($flat_number) {
+			if ($flat_number > ($accesses)*(($flors-1)*$flats+$fff)) {
+			echo "We have not such flat number in this house";
+			$flat_number = NULL;
+
+		}
+ 		else {
+$access_number = ($flat_number)/(($flats)*(($flors)-1)+($fff));
+$access_number = ceil($access_number);
+
+echo "\n Your flat is in access number ___ ";
+print_r($access_number);
+
+
+
+$flor_number = $flat_number-(($access_number-1)*(($flors-1)*$flats+$fff));
+	if ($flor_number <= $fff) {
+		$flor_number = 1;
+	}
+	else {
+		$flor_number = ($flor_number-$fff)/$flats;
+		$flor_number = ceil($flor_number) + 1;
+	}
+
+echo "\n And on the flor number ___ ";
+print_r($flor_number);
+
+
+				}
+			}
+		}
+	}
+
+
 
 	echo "House 4/5/4/3 (4 accesses, 5 flors, per 4 flats (first flor 3 flats only)    --> 1 \n";
 	echo "House 4/5/4/4 (4 accesses, 5 flors, per 4 flats (first flor 4 flats)         --> 2 \n";
@@ -45,7 +121,7 @@ class HouseType extends FindHouse implements OurHouse {
  		$accesses = 4;
  		$flors = 5;
  		$flats = 4;
- 		$fff = 3;  //// First flor flets
+ 		$fff = 3;  //// First flor flats
 
     	break;
 		
@@ -96,66 +172,16 @@ case 5:
     break;    
 default:
     echo "We have not such House type \n";
-    $obj = NULL;
-	}
-	return $this->type;
-	return $accesses;
-	return $flors;
-	return $flats;
-	return $fff;
-}
-	public function ChoosingObject() {
+    exit;
+  	}
+	
+	
 
-	if ($this->type = true) {
-echo "Write your flat number ___";
-$handle = fopen ("php://stdin","r");
-$flat_number = fgets($handle);
-		}
-		return $this->flat_number;
-	}
+$obj->ype($accesses, $flors, $flats, $fff);
+$obj->ChoosingType();
+$obj->ChoosingObject();
+$obj->Calculation();
 
-	public function Calculation() {
-		 if ($flat_number = true) {
-			if ($this->flat_number > ($accesses*($flors-1)*$flats+$fff)) {
-			echo "We have not such flat number in this house";
-			$flat_number = NULL;
-		}
- 		else {
-$access_number = $flat_number/($flats*($flors-1)+$fff);
-$access_number = ceil($access_number);
-
-echo "\n Your flat is in access number ___";
-print_r($access_number);
-
-
-
-$flor_number = $flat_number-(($access_number-1)*(($flors-1)*$flats+$fff));
-	if ($flor_number <= $fff) {
-		$flor_number = 1;
-	}
-	else {
-		$flor_number = ($flor_number-$fff)/$flats;
-		$flor_number = ceil($flor_number) +1;
-	}
-
-echo "\n And on the flor number ___";
-print_r($flor_number);
-	}
-}
-}
-}
-$FindHouse = new HouseType();
-$FindHouse->ChoosingType();
-$FindHouse->ChoosingObject();
-$FindHouse->Calculation();
-
-
-
-
-
-
-
-9
 
 
 
